@@ -166,10 +166,10 @@ public class HuffProcessor {
 				if(bits==0) current=current.myLeft;
 				else current=current.myRight;
 				
-				if(current.myValue!=0) {
+				if(current.myLeft==null&&current.myRight==null) {
 					if(current.myValue==PSEUDO_EOF)break;
 					else {
-						out.writeBits(BITS_PER_WORD+1, current.myValue);
+						out.writeBits(BITS_PER_WORD, current.myValue);
 						current=root;
 					}
 				}
